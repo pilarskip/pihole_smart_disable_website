@@ -15,7 +15,8 @@ Steps:
 4. upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
 
 Simple buttons for computers and mobiles
-Android Browser Shortcut, feels like an app
+
+                                    Android Browser Shortcut, feels like an app
 
 ![grafik](https://user-images.githubusercontent.com/10209780/118378495-93a9b900-b5d4-11eb-8e21-8404b54c23e9.png)
 ![grafik](https://user-images.githubusercontent.com/10209780/118378553-f307c900-b5d4-11eb-85c7-a351a42ec628.png)
