@@ -24,7 +24,9 @@ Android Browser Shortcut, feels like an app
 I didn't find any good solution on the web, so I share this with you.
 
 I'm glad of feedback and support! 
-Best regards
-Patrick
-paypal.me/patpi2
 
+Best regards
+
+Patrick
+
+paypal.me/patpi2
