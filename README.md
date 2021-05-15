@@ -14,6 +14,8 @@ Steps:
     *this is necessary for mobile devices*
 4. upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
 
+        http://ad.block.off/
+
 Simple buttons for computers and mobiles
 ![grafik](https://user-images.githubusercontent.com/10209780/118378495-93a9b900-b5d4-11eb-8e21-8404b54c23e9.png)
 
