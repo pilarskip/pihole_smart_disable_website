@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Author: Patrick Pilarski
+    ..git
+    ..mail?
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pihole</title>
+  <!-- root directory of you website -->
+  <base href="http://ad.block.off/admin/">
+  <!-- favicon stolen from your pihole -->
+  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#367fa9">
+  <link rel="shortcut icon" href="img/favicons/favicon.ico">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- Create your API-Token <<pihole-IP>>/admin/settings.php?tab=api -->
+  <script>
+    var token = "123abc";
+  </script>
+</head>
+
+<body class="bg-dark">
+  <div class=" container">
+    <div class="row">
+      <div id="status" class="badge bg-success text-wrap fs-1">
+        Adblock enabled!
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <input type="text" id="min" class="form-control" placeholder="Minutes">
+      </div>
+      <button type="button" class="col-8  btn btn-danger" onclick="blockMin()">disable Pihole for custom min </button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-danger col-12 " onclick="block(300)">disable Pihole for 5 min </button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-danger col-12" onclick="block()">disable Pihole
+      </button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-success col-12" onclick="enable()">enable Pihole</button>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- Space between button rows #fatfingers -->
+<style>
+  .row {
+    margin-top: 2%;
+  }
+</style>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<script>
+  var res; // Variable for response use by method "check()"
+  var count; // simulated time because 
+
+  // disable for fixed 300s or just disable
+  function block(time) {
+    if (time > 0) {
+      count = time;
+      fetch("http://ad.block.off/admin/api.php?disable=" + time + "&auth=" + token);
+    } else {
+      fetch("http://ad.block.off/admin/api.php?disable&auth=" + token);
+    }
+  }
+
+  // Select minutes from input field
+  function blockMin() {
+    let time = document.getElementById("min").value * 60;
+    if (time > 0) {
+      count = time;
+      fetch("http://ad.block.off/admin/api.php?disable=" + time + "&auth=" + token);
+    } else {
+      fetch("http://ad.block.off/admin/api.php?disable&auth=" + token);
+    }
+  }
+
+  // enabling pihole and set count to zero
+  function enable() {
+    count = 0;
+    fetch("http://ad.block.off/admin/api.php?enable&auth=" + token);
+
+  }
+
+  // get status of pihole and store resonse value in res
+  function getStatus() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        res = xhttp.responseText;
+      }
+    };
+    xhttp.open("GET", "http://ad.block.off/admin/api.php?status", true);
+    xhttp.send();
+  }
+
+  // update html element based on value of res
+  function check() {
+    if (res == "{\"status\":\"enabled\"}") {
+      document.getElementById("status").innerHTML = "Adblock enabled!";
+      document.getElementById("status").setAttribute("class", "badge bg-success text-wrap fs-1");
+    }
+    if (res == "{\"status\":\"disabled\"}") {
+      if (count > 0) {
+        document.getElementById("status").innerHTML = "Adblock disabled for " + count + " seconds!";
+      } else {
+        document.getElementById("status").innerHTML = "Adblock disabled";
+      }
+      document.getElementById("status").setAttribute("class", "badge bg-warning text-wrap fs-1");
+    }
+    count--;
+  }
+
+  // update every second status & countdown
+  var intervalId = window.setInterval(function () {
+    getStatus();
+    check();
+  }, 1000); // Sekunde * 60 
+
+</script>
