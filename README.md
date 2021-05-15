@@ -15,10 +15,16 @@ Steps:
 4. upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
 
 Simple buttons for computers and mobiles
-
 ![grafik](https://user-images.githubusercontent.com/10209780/118378495-93a9b900-b5d4-11eb-8e21-8404b54c23e9.png)
 
 
 Android Browser Shortcut, feels like an app
 ![grafik](https://user-images.githubusercontent.com/10209780/118378553-f307c900-b5d4-11eb-85c7-a351a42ec628.png)
+
+I didn't find any good solution on the web, so I share this with you.
+
+I'm glad of feedback and support! 
+Best regards
+Patrick
+paypal.me/patpi2
 
