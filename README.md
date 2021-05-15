@@ -1,6 +1,8 @@
 # pihole_smart_disable
 Quick disable or enable Pihole from any device
 
+not working atm.. looking for fix soon =(
+
 Condition:
 Pihole is your DNS Server
 
