@@ -21,7 +21,7 @@ Simple buttons for computers and mobiles
 Android Browser Shortcut, feels like an app
 ![grafik](https://user-images.githubusercontent.com/10209780/118378553-f307c900-b5d4-11eb-85c7-a351a42ec628.png)
 
-I didn't find any good solution on the web, so I share this with you.
+I didn't find any good solution on the web, so I made and share this with you.
 
 I'm glad of feedback and support! 
 
