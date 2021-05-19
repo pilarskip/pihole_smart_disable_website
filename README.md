@@ -1,4 +1,4 @@
-# pihole_smart_disable
+# pihole_smart_disable_website
 Quick disable or enable Pihole from any device
 
 Condition:
