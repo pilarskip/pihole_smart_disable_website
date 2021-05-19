@@ -7,6 +7,7 @@ Pihole is your DNS Server
 Steps: 
 1. go to your pihole admin page -> Settings -> API/ Web Interface - Show API token
 2. copy and paste it to the index.html -> head -> script -> token
+(Quick note: Be aware that your API access token is saved in the index.html file, and it could be viewed and abused by anyone who has access to that URL)
 3. create a Local DNS Record
     admin page -> Local DNS -> DNS Records 
                   Domain:    ad.block.off	
