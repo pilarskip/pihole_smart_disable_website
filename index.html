@@ -103,7 +103,7 @@
         res = xhttp.responseText;
       }
     };
-    xhttp.open("GET", "http://ad.block.off/admin/api.php?status", true);
+    xhttp.open("GET", "http://ad.block.off/admin/api.php?status&auth=" + token, true);
     xhttp.send();
   }
 
