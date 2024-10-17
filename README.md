@@ -14,8 +14,8 @@ Steps:
                   IP Adress: <"Pihole-IP"> e.g. 192.168.X.X
     *this is necessary for mobile devices*
 4. (a) upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
-5. (b)  cd /var/www/html/
-sudo nano index.html
+    (b)  `cd /var/www/html/`
+`sudo nano index.html`
 paste code with changed API-token in
 finish ctrl+x and save with Y
 
