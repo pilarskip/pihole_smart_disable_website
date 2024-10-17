@@ -13,7 +13,11 @@ Steps:
                   Domain:    ad.block.off	
                   IP Adress: <"Pihole-IP"> e.g. 192.168.X.X
     *this is necessary for mobile devices*
-4. upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
+4. a) upload the index.html to /var/www/html/ (or your pihole webbrowsers root)
+b)  cd /var/www/html/
+sudo nano index.html
+paste code with changed API-token in
+finish ctrl+x and save with Y
 
         http://ad.block.off/
 
